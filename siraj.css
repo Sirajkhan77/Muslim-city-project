@@ -153,6 +153,8 @@ body{
 
 
 
+
+
 /* ###########   A B O U T    US   ########### */
 
 .about{
@@ -312,4 +314,204 @@ body{
     font-weight: 500;
     color: #fff;
     background: rgb(65,65,65);
+}
+
+
+
+
+/* ####################    MEDIA QUERIES    ###################### */
+
+
+
+
+@media(max-width : 768px){
+    .navbar{
+        opacity: 0.95;
+    }
+    .navbar-container input,
+    .navbar-container .hamburger-lines{
+        display: block;
+    }
+    .navbar-container{
+        display: block;
+        position: relative;
+        height:64px;
+
+    }
+
+    .navbar-container input[type='checkbox']{
+        position: absolute;
+        display: block;
+        height: 32px;
+        width: 47px;
+        top: 20px;
+        left: 10px;
+        z-index: 5;
+        opacity: 0;
+
+    }
+
+    .navbar-container .hamburger-lines{
+        display: block;
+        height: 32px;
+        width: 36px;
+        position: absolute;
+        top: 20px;
+        left: 15px;
+        z-index: 3;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        /* border: 2px solid rebeccapurple; */
+    }
+
+    .navbar-container .hamburger-lines .lines{
+        display: block;
+        height: 5px;
+        border-radius: 20px;
+        width: 100%;
+        background: #1a1a1a;
+    }
+
+    .navbar-container .hamburger-lines .line1{
+        transform-origin: 0% 0%;
+        transition: all 0.4s ease-in-out;
+        background: gold;
+    }
+    .navbar-container .hamburger-lines .line2{
+        /* transform-origin: 0% 0%; */
+        transition: all 0.4s ease-in-out;
+        background: rgb(0, 221, 0);
+    }
+    .navbar-container .hamburger-lines .line3{
+        transform-origin: 0% 100%;
+        transition: all 0.4s ease-in-out;
+        background: gold;
+    }
+
+
+
+
+
+
+
+    .navbar .menu-items li{
+        margin-bottom: 2rem;
+        font-size: 1.9rem;
+        font-weight: 500;
+        padding-left: 50px;
+
+    }
+
+    .menu-items{
+        display: flex;
+        flex-direction: column;
+        padding-top: 120px;
+        height: 100vh;
+        width: 300px;
+        background: white;
+        margin-left: -37px;
+        margin-top: 85vh;
+        transform: translateX(-100%);
+        transition: all 0.4s ease-in-out;
+    }
+
+    .logo{
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        font-size: 3rem;
+    }
+
+    .navbar-container input[type='checkbox']:checked ~.hamburger-lines .line1{
+        transform: rotate(45deg);
+        width: 112%;
+    }
+    .navbar-container input[type='checkbox']:checked ~.hamburger-lines .line2{
+        transform: scaleY(0);
+        /* display: none; */
+    }
+    .navbar-container input[type='checkbox']:checked ~.hamburger-lines .line3{
+        transform: rotate(-45deg);
+        width: 112%;
+    }
+
+    input[type='checkbox']:checked~.menu-items{
+        transform: translateX(0%);
+    }
+
+
+
+    .festival-container{
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .food-type:not(:last-child){
+        margin-bottom: 3rem;
+    }
+
+    .food-type{
+        box-shadow: 5px 5px 10px #aaa;
+    }
+
+    .image-container{
+        margin: 0;
+    }
+
+    
+
+}
+
+
+
+
+@media (max-width:500px){
+
+    .testimonial-box{
+        flex-direction: column;
+        text-align: center;
+        height: 580px;
+    }
+
+    .food-menu-container img{
+        margin: auto;
+    }
+
+
+    .food-menu-items{
+        flex-direction: column;
+        text-align: center;
+    }
+
+
+    .contact-box{
+        flex-direction: column;
+        height: 600px;
+    }
+
+
+    .contact-box .inputs{
+        width: 90%;
+        margin-top: 20px;
+    }
+
+    .contact-box .inputs .btn{
+        margin-top: 20px;
+    }
+
+}
+
+
+/* ############   LAMDSCAPE MODE   ########### */
+
+
+
+@media (orientation:landscape) and (max-height:500px){
+    .showcase-area{
+        height: 50vmax;
+    }
+}
+html{
+    scroll-behavior: smooth;
 }

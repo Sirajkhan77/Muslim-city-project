@@ -6,6 +6,7 @@
         <script src="https://kit.fontawesome.com/4972aba2c4.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="./Css/Contact1.css">
         <link rel="stylesheet" href="./Css/siraj.css">
+        <link rel="stylesheet" href="../siraj.css">
         <title>Contact Us</title>
     </head>
 <body>
@@ -28,7 +29,6 @@
                 <h1 class="logo">Al-Siraj Town</h1>
         </div>
     </nav>
-
 
     <section class="contact-form">
         <div class="container">
@@ -55,7 +55,6 @@
                 <label for="">Message*</label><br>
                 <textarea type="textarea" name="" id="" class="in-textarea input" placeholder="Type"> </textarea><br>
                 <button class="forum-btn btn-scendory">Submit</button>
-
             </div>
             </form>
         </div>
@@ -63,13 +62,58 @@
 
     <footer class="footer">
         <div class="social-media-icons">
-            <i class="fab fa-whatsapp fa-4x"></i>
-            <i class="fab fa-facebook fa-4x"></i>
-            <i class="fab fa-instagram  fa-4x"></i>
+            <a href="https://www.linkedin.com/in/siraj-younis-672038278/"><i class="fab fa-linkedin fa-4x"></i></a>
+            <a href="https://web.facebook.com/profile.php?id=100055935824985"><i class="fab fa-facebook fa-4x"></i></a>
+            <a href="https://www.instagram.com/letss_code_it/"><i class="fab fa-instagram  fa-4x"></i></a>
         </div>
         <p class="ft-paragraph">WORLD TRAVEL &copy; 2023 , All Rights Reserved</p>
     </footer>
     </section>
     
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.querySelector('form.forum');
+            form.addEventListener('submit', function(event) {
+                const name = document.querySelector('input.in-text').value.trim();
+                const email = document.querySelector('input.in-email').value.trim();
+                const phone = document.querySelector('input.in-number').value.trim();
+                const message = document.querySelector('textarea.in-textarea').value.trim();
+
+                let valid = true;
+                const emailPattern = /\S+@\S+\.\S+/;
+                const phonePattern = /^\+?\d{10,15}$/;
+                const errorMessages = document.querySelectorAll('.error-message');
+                errorMessages.forEach(msg => msg.remove());
+                if (name === "") {
+                    showError('input.in-text', 'Name is required.');
+                    valid = false;
+                }
+                if (email === "" || !emailPattern.test(email)) {
+                    showError('input.in-email', 'A valid email is required.');
+                    valid = false;
+                }
+                if (phone === "" || !phonePattern.test(phone)) {
+                    showError('input.in-number', 'A valid phone number is required.');
+                    valid = false;
+                }
+                if (message === "") {
+                    showError('textarea.in-textarea', 'Message is required.');
+                    valid = false;
+                }
+                if (!valid) {
+                    event.preventDefault();
+                }
+            });
+            function showError(selector, message) {
+                const inputElement = document.querySelector(selector);
+                const errorElement = document.createElement('div');
+                errorElement.className = 'error-message';
+                errorElement.style.color = 'red';
+                errorElement.style.fontSize = '1.275em';
+                errorElement.textContent = message;
+                inputElement.parentNode.insertBefore(errorElement, inputElement.nextSibling);
+            }
+        });
+    </script>
 </body>
 </html>

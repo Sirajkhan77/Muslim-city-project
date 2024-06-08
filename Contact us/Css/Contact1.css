@@ -233,3 +233,14 @@ width: 100%;
     background: #e63946;
     margin: 5px 39%;
 }
+.error-message {
+    color: red;
+    font-size: 0.875em;
+}
+
+
+@media (max-width:720px){
+    .contact-wraper{
+        flex-direction: column;
+    }
+}
